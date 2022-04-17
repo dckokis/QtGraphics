@@ -4,15 +4,14 @@
 
 class Cube final : public BasicObject {
 public:
-    explicit Cube(GLfloat edgeLen, unsigned gridStep);
+	explicit Cube(GLfloat edgeLen, unsigned gridStep);
 
-    void initialize() override;
+	auto initialize() -> void override;
 
-    void render(QOpenGLShaderProgram& program) override;
+	auto render(QOpenGLShaderProgram& program) -> void override;
 
-    void setColor(const QColor& color) override;
+	auto setColor(const QColor& color) -> void override;
 
 private:
-    std::vector<SquareSurface> m_faces;
+	std::vector<SquareSurface> m_faces;
 };
-

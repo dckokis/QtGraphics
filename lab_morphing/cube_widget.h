@@ -10,31 +10,33 @@
 
 class CubeWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
 public slots:
-    void setCubeColor(const QColor& color);
+	auto setCubeColor(const QColor& color) -> void;
 
-    void setGrid(int value);
+	auto setGrid(int value) -> void;
 
-    void setMorph(int value);
+	auto setMorph(int value) -> void;
+
 private slots:
-	void callColorDialog();
+	auto callColorDialog() -> void;
 
-    void closeColorDialog() const;
+	auto closeColorDialog() const -> void;
+
 private:
-    ColorWidget* m_colorWidget = nullptr;
+	ColorWidget* m_colorWidget = nullptr;
 
-    void initializeGL() override;
+	auto initializeGL() -> void override;
 
-    void paintGL() override;
+	auto paintGL() -> void override;
 
-    void initShaders();
+	auto initShaders() -> void;
 
-    QOpenGLShaderProgram m_program;
+	QOpenGLShaderProgram m_program;
 
-    std::unique_ptr<Cube> m_cube;
+	std::unique_ptr<Cube> m_cube;
 
-    QColor m_cubeColor {200, 255, 100};
+	QColor m_cubeColor{200, 255, 100};
 
-    float m_cubeEdgeLen = 2.0f;
+	float m_cubeEdgeLen = 2.0f;
 
-    float m_morphRate = 0;
+	float m_morphRate = 0;
 };
