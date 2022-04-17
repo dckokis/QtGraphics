@@ -4,13 +4,15 @@
 #include <QOpenGLShaderProgram>
 
 
-class BasicObject: protected QOpenGLFunctions
-{
+class BasicObject : protected QOpenGLFunctions {
 public:
-    BasicObject() = default;
-    virtual void initialize() = 0;
-    virtual void render(QOpenGLShaderProgram& program) = 0;
-    virtual void setColor(const QColor& color) = 0;
-    virtual ~BasicObject() = default;
-};
+	BasicObject() = default;
 
+	virtual auto initialize() -> void = 0;
+
+	virtual auto render(QOpenGLShaderProgram& program) -> void = 0;
+
+	virtual auto setColor(const QColor& color) -> void = 0;
+
+	virtual ~BasicObject() = default;
+};

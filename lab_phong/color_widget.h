@@ -5,9 +5,11 @@
 class ColorWidget final : public QWidget {
 public:
 	ColorWidget();
-	[[nodiscard]] QColorDialog* getColorDialog() const;
+
+	[[nodiscard]] auto getColorDialog() const -> QColorDialog*;
+
 private:
 	QColorDialog* m_colorDialog = nullptr;
-	void setUpColorDialog() const;
-};
 
+	auto setUpColorDialog() const -> void;
+};

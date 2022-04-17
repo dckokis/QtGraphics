@@ -2,20 +2,18 @@
 
 ColorWidget::ColorWidget() : m_colorDialog(new QColorDialog) {
 	setUpColorDialog();
-    auto color_layout = std::make_unique<QHBoxLayout>();
-    color_layout->addWidget(m_colorDialog);
+	auto color_layout = std::make_unique<QHBoxLayout>();
+	color_layout->addWidget(m_colorDialog);
 	this->setLayout(color_layout.release());
-    this->setWindowTitle("Color Chose");
+	this->setWindowTitle("Color Chose");
 }
 
 
-QColorDialog* ColorWidget::getColorDialog() const {
-    return m_colorDialog;
-}
+auto ColorWidget::getColorDialog() const -> QColorDialog* { return m_colorDialog; }
 
 
-void ColorWidget::setUpColorDialog() const {
+auto ColorWidget::setUpColorDialog() const -> void {
 	QPalette color_dialog_pal;
-    color_dialog_pal.setColor(QPalette::Button, QColor(53, 53, 53));
-    m_colorDialog->setPalette(color_dialog_pal);
+	color_dialog_pal.setColor(QPalette::Button, QColor(53, 53, 53));
+	m_colorDialog->setPalette(color_dialog_pal);
 }

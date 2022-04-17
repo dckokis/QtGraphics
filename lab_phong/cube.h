@@ -3,34 +3,35 @@
 #include <QOpenGLBuffer>
 
 
-struct Vertex{
-    QVector3D position;
-    QVector3D normal;
-    Vertex(const QVector3D& vertex, const QVector3D& normal) : position(vertex), normal(normal) {}
+struct Vertex {
+	QVector3D position;
+	QVector3D normal;
+
+	Vertex(const QVector3D& vertex, const QVector3D& normal) : position(vertex), normal(normal) {}
 };
 
 class Cube : public BasicObject {
 public:
-    explicit Cube(GLfloat edgeLen, GLint gridStep);
+	explicit Cube(GLfloat edgeLen, GLint gridStep);
 
-    void initialize() override;
+	auto initialize() -> void override;
 
-    void render(QOpenGLShaderProgram& program) override;
+	auto render(QOpenGLShaderProgram& program) -> void override;
 
-    void setColor(const QColor& color) override;
+	auto setColor(const QColor& color) -> void override;
 
-    [[nodiscard]] QColor getColor() const;
+	[[nodiscard]] auto getColor() const -> QColor;
 
-	~Cube() override;
+	virtual ~Cube() override;
+
 private:
-    const GLfloat m_edgeLen;
-    GLint m_gridStep;
-    std::vector<Vertex> m_vertices;
-    std::vector<GLint> m_indices;
-    QColor m_color {255, 255, 255};
-    QOpenGLBuffer m_vertexBuf, m_indexBuf;
+	const GLfloat m_edgeLen;
+	GLint m_gridStep;
+	std::vector<Vertex> m_vertices;
+	std::vector<GLint> m_indices;
+	QColor m_color{255, 255, 255};
+	QOpenGLBuffer m_vertexBuf, m_indexBuf;
 
-	void setFace(const QMatrix4x4& matrix);
-    
+	auto setFace(const QMatrix4x4& matrix) -> void;
+
 };
-

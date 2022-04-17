@@ -2,29 +2,19 @@
 
 #include "cube.h"
 
-class LightSource final: public Cube{
+class LightSource final : public Cube {
 public:
-    explicit LightSource(const GLfloat edgeLen = 1) : Cube(edgeLen, 1) {}
+	explicit LightSource(const GLfloat edgeLen = 1) : Cube(edgeLen, 1) {}
 
-    void setPos(const QVector3D& pos) {
-	     m_pos = pos;
-    }
+	auto setPos(const QVector3D& pos) -> void { m_pos = pos; }
 
-    [[nodiscard]] QVector3D getPos() const {
-	    return m_pos;
-    }
+	[[nodiscard]] auto getPos() const -> QVector3D { return m_pos; }
 
-	void Switch() {
-		m_isEnabled = !m_isEnabled;
-	}
+	auto Switch() -> void { m_isEnabled = !m_isEnabled; }
 
-    [[nodiscard]] bool isEnabled() const
-    {
-	    return m_isEnabled;
-    }
+	[[nodiscard]] auto isEnabled() const -> bool { return m_isEnabled; }
 
 private:
-    bool m_isEnabled = true;
-    QVector3D m_pos{};
+	bool m_isEnabled = true;
+	QVector3D m_pos{};
 };
-

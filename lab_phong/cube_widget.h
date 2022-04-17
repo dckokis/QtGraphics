@@ -12,115 +12,124 @@
 #include "camera.h"
 
 
-struct AmbientLight
-{
-	QColor color { 255, 255, 255 };
-    bool is_enabled = true;
+struct AmbientLight {
+	QColor color{255, 255, 255};
+	bool is_enabled = true;
 };
 
 
 class CubeWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
-    Q_OBJECT
+	Q_OBJECT
 public slots:
-    void setCubeColor(const QColor& color);
-    void setGrid(const int value);
-    void setNumberOfCubes(int value);
+	auto setCubeColor(const QColor& color) -> void;
 
-    void moveCamera(const int position);
+	auto setGrid(const int value) -> void;
 
-    void setAmbientCoef(int value);
-    void setDiffuseCoef(int value);
-    void setSpecularCoef(int value);
+	auto setNumberOfCubes(int value) -> void;
 
-    void switchAmbient();
-    void switchPointLight();
-    void switchDirectedLight();
-    void switchProjector();
+	auto moveCamera(const int position) -> void;
 
-    void setAmbientColor(const QColor& color);
-    void setPointLightColor(const QColor& color);
-    void setDirectedLightColor(const QColor& color);
-    void setProjectorColor(const QColor& color);
+	auto setAmbientCoef(int value) -> void;
 
-    
-    void setPointLightX(double x);
-    void setPointLightY(double y);
-    void setPointLightZ(double z);
+	auto setDiffuseCoef(int value) -> void;
 
-    void setDirectedLightX(double x);
-    void setDirectedLightY(double y);
-    void setDirectedLightZ(double z);
+	auto setSpecularCoef(int value) -> void;
 
-    void setProjectorLightX(double x);
-    void setProjectorLightY(double y);
-    void setProjectorLightZ(double z);
-    void setProjectorDirX(double x);
-    void setProjectorDirY(double y);
-    void setProjectorDirZ(double z);
+	auto switchAmbient() -> void;
 
+	auto switchPointLight() -> void;
+
+	auto switchDirectedLight() -> void;
+
+	auto switchProjector() -> void;
+
+	auto setAmbientColor(const QColor& color) -> void;
+
+	auto setPointLightColor(const QColor& color) -> void;
+
+	auto setDirectedLightColor(const QColor& color) -> void;
+
+	auto setProjectorColor(const QColor& color) -> void;
+
+
+	auto setPointLightX(double x) -> void;
+
+	auto setPointLightY(double y) -> void;
+
+	auto setPointLightZ(double z) -> void;
+
+	auto setDirectedLightX(double x) -> void;
+
+	auto setDirectedLightY(double y) -> void;
+
+	auto setDirectedLightZ(double z) -> void;
+
+	auto setProjectorLightX(double x) -> void;
+
+	auto setProjectorLightY(double y) -> void;
+
+	auto setProjectorLightZ(double z) -> void;
+
+	auto setProjectorDirX(double x) -> void;
+
+	auto setProjectorDirY(double y) -> void;
+
+	auto setProjectorDirZ(double z) -> void;
 
 private slots:
-	void callColorDialog();
+	auto callColorDialog() -> void;
 
-    void closeColorDialog() const;
+	auto closeColorDialog() const -> void;
 
 public:
-    [[nodiscard]] QVector3D getPointStartPos() const
-    {
-	    return m_pointStartPos;
-    }
+	[[nodiscard]] auto getPointStartPos() const -> QVector3D { return m_pointStartPos; }
 
-    [[nodiscard]] QVector3D getDirectedStartPos() const
-    {
-	    return m_directedStartPos;
-    }
+	[[nodiscard]] auto getDirectedStartPos() const -> QVector3D { return m_directedStartPos; }
 
-    [[nodiscard]] QVector3D getProjectorStartPos() const
-    {
-	    return m_projectorStartPos;
-    }
+	[[nodiscard]] auto getProjectorStartPos() const -> QVector3D { return m_projectorStartPos; }
 
-    [[nodiscard]] QVector3D getProjectorDirection() const
-    {
-	    return m_projectorDirection;
-    }
+	[[nodiscard]] auto getProjectorDirection() const -> QVector3D { return m_projectorDirection; }
+
 private:
-    ColorWidget* m_colorWidget = nullptr;
+	ColorWidget* m_colorWidget = nullptr;
 
-    LightSource m_directedLight, m_pointLight, m_projectorLight;
+	LightSource m_directedLight, m_pointLight, m_projectorLight;
 
-    QVector3D m_pointStartPos = { 15.f, 15.f, 1.f },
-	m_directedStartPos = { -20.f, 0.f, 1.f },
-	m_projectorStartPos = { 0.0f, 0.0f, 20.f },
-    m_projectorDirection = QVector3D(0, 0, -1).normalized();
+	QVector3D m_pointStartPos = {15.f, 15.f, 1.f},
+	          m_directedStartPos = {-20.f, 0.f, 1.f},
+	          m_projectorStartPos = {0.0f, 0.0f, 20.f},
+	          m_projectorDirection = QVector3D(0, 0, -1).normalized();
 
-    void initializeGL() override;
+	virtual auto initializeGL() -> void override;
 
-    void paintGL() override;
+	virtual auto paintGL() -> void override;
 
-    void initShaders();
-    void initLights();
-    void initCubes();
-    Camera m_camera;
+	auto initShaders() -> void;
 
-    QOpenGLShaderProgram m_objectProgram, m_lightProgram;
+	auto initLights() -> void;
 
-     std::vector<std::unique_ptr<Cube>> m_cubes;
-    unsigned m_cubesAmount = 10;
+	auto initCubes() -> void;
 
-    AmbientLight m_ambientLight;
+	Camera m_camera;
 
-    QColor m_cubeColor {255, 255, 255};
+	QOpenGLShaderProgram m_objectProgram, m_lightProgram;
 
-    float m_cubeEdgeLen = 4.f;
+	std::vector<std::unique_ptr<Cube>> m_cubes;
+	unsigned m_cubesAmount = 10;
 
-    int m_gridStep = 20;
+	AmbientLight m_ambientLight;
 
-    GLfloat m_ka = .2f, m_kd = .2f, m_ks = 1.f;
+	QColor m_cubeColor{255, 255, 255};
 
-    size_t m_rotationFactor = 0;
-    QLabel m_fpsLabel;
-    QElapsedTimer m_timer;
-    size_t m_frames = 0;
-    QString m_fps = "FPS:    ";
+	float m_cubeEdgeLen = 4.f;
+
+	int m_gridStep = 20;
+
+	GLfloat m_ka = .2f, m_kd = .2f, m_ks = 1.f;
+
+	size_t m_rotationFactor = 0;
+	QLabel m_fpsLabel;
+	QElapsedTimer m_timer;
+	size_t m_frames = 0;
+	QString m_fps = "FPS:    ";
 };
