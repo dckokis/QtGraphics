@@ -81,13 +81,13 @@ auto SphereWidget::initShaders() -> void {
 }
 
 auto SphereWidget::initTextures() -> void {
-	m_earthTexture.reset(new QOpenGLTexture(QImage("Textures/Earth_Albedo.jpg")));
+	m_earthTexture.reset(new QOpenGLTexture(QImage("Textures/8k_earth_daymap.jpg")));
 	m_earthTexture->setMinificationFilter(QOpenGLTexture::Nearest);
 
 	m_sunTexture.reset(new QOpenGLTexture(QImage("Textures/Sun.jpg")));
 	m_sunTexture->setMinificationFilter(QOpenGLTexture::Nearest);
 
-	m_earthNormalMap.reset(new QOpenGLTexture(QImage("Textures/Earth_NormalMap.jpg")));
+	m_earthNormalMap.reset(new QOpenGLTexture(QImage("Textures/8k_earth_normal_map.jpg")));
 	m_sunTexture->setMinificationFilter(QOpenGLTexture::Nearest);
 }
 
