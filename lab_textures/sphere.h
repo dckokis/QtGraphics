@@ -24,7 +24,7 @@ private:
 	auto initIndices() -> void;
 
 	GLfloat m_radius;
-	GLuint m_lats, m_longs;
+	GLuint m_parallels, m_meridians;
 	QOpenGLBuffer m_vertexBuf, m_indexBuf;
 	std::vector<Vertex> m_vertices;
 	std::vector<GLuint> m_indices;

@@ -10,8 +10,6 @@ class Lighter final : public Sphere {
 public:
 	Lighter();
 
-	auto setColor(const LightColor& col) -> void;
-
 	[[nodiscard]] auto getPos() const -> QVector3D;
 
 	[[nodiscard]] auto getColor() const -> LightColor;

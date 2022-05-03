@@ -1,7 +1,6 @@
 #include "sphere_widget.h"
 #include <QKeyEvent>
 
-
 SphereWidget::SphereWidget(QWidget* parent)
 	: QOpenGLWidget(parent) {}
 
