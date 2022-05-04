@@ -25,7 +25,7 @@ private:
 
 	QOpenGLShaderProgram m_sphereProgram, m_lighterProgram;
 
-	Sphere m_earth{0.4f, 500, 500};
+	Sphere m_earth{0.4f, 500};
 	QVector3D m_earthPos{0.f, 0.f, -4.f};
 
 	Lighter m_lighter;

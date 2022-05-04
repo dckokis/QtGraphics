@@ -15,6 +15,6 @@ public:
 	[[nodiscard]] auto getColor() const -> LightColor;
 
 private:
-	QVector3D m_pos{-10.f, 0.5f, 5.f};
+	QVector3D m_pos{-5.f, 0.5f, 5.f};
 	LightColor m_col{{0, 0, 255}, {255, 255, 100}, {255, 255, 255}};
 };

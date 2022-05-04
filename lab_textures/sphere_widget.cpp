@@ -92,9 +92,8 @@ auto SphereWidget::initTextures() -> void {
 
 auto SphereWidget::wheelEvent(QWheelEvent* event) -> void {
 	auto dr = 0.f;
-	constexpr auto offset = 1.f;
-	if (event->angleDelta().y() > 0) { dr = offset * m_camera.getFront().z() / abs(m_camera.getFront().z()); }
-	else if (event->angleDelta().y() < 0) { dr = -offset * m_camera.getFront().z() / abs(m_camera.getFront().z()); }
+	if (event->angleDelta().y() > 0) { dr = m_camera.getFront().z() / abs(m_camera.getFront().z()); }
+	else if (event->angleDelta().y() < 0) { dr = -m_camera.getFront().z() / abs(m_camera.getFront().z()); }
 	m_camera.setPos({
 		m_camera.getPos().x() + dr * m_camera.getFront().x(),
 		m_camera.getPos().y() + dr * m_camera.getFront().y(),

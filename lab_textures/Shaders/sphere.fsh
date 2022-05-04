@@ -43,8 +43,8 @@ vec4 lightning()
   vec3 viewDir = normalize(viewPos - fragPos);
   vec3 reflectDir = reflect(-lightDir, norm);
 
-  float spec = pow(max(dot(viewDir, reflectDir), 0.0), 10);
-  vec4 specular =  spec * specCol;
+  float spec = pow(max(dot(viewDir, reflectDir), 0.0), 2);
+  vec4 specular = 0.1f * spec * specCol;
 
   return ambient + diffuse + specular;
 }

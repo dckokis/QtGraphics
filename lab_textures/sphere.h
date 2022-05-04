@@ -10,7 +10,7 @@ struct Vertex {
 
 class Sphere : protected QOpenGLFunctions {
 public:
-	explicit Sphere(GLfloat radius, GLuint lats, GLuint longs);
+	explicit Sphere(GLfloat radius, GLuint resolution);
 
 	auto initialize() -> void;
 
@@ -24,7 +24,7 @@ private:
 	auto initIndices() -> void;
 
 	GLfloat m_radius;
-	GLuint m_parallels, m_meridians;
+	GLuint m_resolution;
 	QOpenGLBuffer m_vertexBuf, m_indexBuf;
 	std::vector<Vertex> m_vertices;
 	std::vector<GLuint> m_indices;
