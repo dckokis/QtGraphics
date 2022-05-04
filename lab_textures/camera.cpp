@@ -1,45 +1,19 @@
 #include "camera.h"
 
+auto Camera::setPos(const QVector3D& pos) -> void { m_pos = pos; }
 
-void Camera::setPos(const QVector3D& pos)
-{
-  pos_ = pos;
+auto Camera::setFront(const QVector3D& front) -> void { m_front = front; }
+
+auto Camera::setUp(const QVector3D& up) -> void { m_up = up; }
+
+auto Camera::getViewMatrix() const -> QMatrix4x4 {
+	QMatrix4x4 matrix;
+	matrix.lookAt(m_pos, m_pos + m_front, m_up);
+	return matrix;
 }
 
+auto Camera::getPos() const -> QVector3D { return m_pos; }
 
-void Camera::setFront(const QVector3D& front)
-{
-  front_ = front;
-}
+auto Camera::getFront() const -> QVector3D { return m_front; }
 
-
-void Camera::setUp(const QVector3D& up)
-{
-  up_ = up;
-}
-
-
-QMatrix4x4 Camera::getViewMatrix() const
-{
-  QMatrix4x4 matrix;
-  matrix.lookAt(pos_, pos_ + front_, up_);
-  return matrix;
-}
-
-
-QVector3D Camera::getPos() const
-{
-  return pos_;
-}
-
-
-QVector3D Camera::getFront() const
-{
-  return front_;
-}
-
-
-QVector3D Camera::getUp() const
-{
-  return up_;
-}
+auto Camera::getUp() const -> QVector3D { return m_up; }
