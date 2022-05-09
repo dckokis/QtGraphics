@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D03812FD-2D0D-4119-BFA7-673245910C61}</ProjectGuid>
-    <RootNamespace>lab_guro</RootNamespace>
+    <ProjectGuid>{69FC6646-C193-4E77-B991-413E311D767D}</ProjectGuid>
+    <RootNamespace>lab_mesh</RootNamespace>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
@@ -26,7 +26,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>release\</IntermediateDirectory>
-    <PrimaryOutput>lab_guro</PrimaryOutput>
+    <PrimaryOutput>lab_mesh</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <PlatformToolset>v143</PlatformToolset>
@@ -35,7 +35,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>debug\</IntermediateDirectory>
-    <PrimaryOutput>lab_guro</PrimaryOutput>
+    <PrimaryOutput>lab_mesh</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
@@ -55,13 +55,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>debug\</OutDir>
     <IntDir>debug\</IntDir>
-    <TargetName>lab_guro</TargetName>
+    <TargetName>lab_mesh</TargetName>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>release\</OutDir>
     <IntDir>release\</IntDir>
-    <TargetName>lab_guro</TargetName>
+    <TargetName>lab_mesh</TargetName>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -99,7 +99,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;$(QTDIR)\lib\Qt6OpenGLWidgets.lib;$(QTDIR)\lib\Qt6OpenGL.lib;$(QTDIR)\lib\Qt6Widgets.lib;$(QTDIR)\lib\Qt6Gui.lib;$(QTDIR)\lib\Qt6Core.lib;$(QTDIR)\lib\Qt6EntryPoint.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;assimp.lib;$(QTDIR)\lib\Qt6OpenGLWidgets.lib;$(QTDIR)\lib\Qt6OpenGL.lib;$(QTDIR)\lib\Qt6Widgets.lib;$(QTDIR)\lib\Qt6Gui.lib;$(QTDIR)\lib\Qt6Core.lib;$(QTDIR)\lib\Qt6EntryPoint.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -108,7 +108,7 @@
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
       <LinkIncremental>false</LinkIncremental>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\lab_guro.exe</OutputFile>
+      <OutputFile>$(OutDir)\lab_mesh.exe</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -151,13 +151,13 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;$(QTDIR)\lib\Qt6OpenGLWidgetsd.lib;$(QTDIR)\lib\Qt6OpenGLd.lib;$(QTDIR)\lib\Qt6Widgetsd.lib;$(QTDIR)\lib\Qt6Guid.lib;$(QTDIR)\lib\Qt6Cored.lib;$(QTDIR)\lib\Qt6EntryPointd.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp.lib;$(QTDIR)\lib\Qt6OpenGLWidgetsd.lib;$(QTDIR)\lib\Qt6OpenGLd.lib;$(QTDIR)\lib\Qt6Widgetsd.lib;$(QTDIR)\lib\Qt6Guid.lib;$(QTDIR)\lib\Qt6Cored.lib;$(QTDIR)\lib\Qt6EntryPointd.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\QtGraphics\lab_mesh\LibAssimp\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
-      <OutputFile>$(OutDir)\lab_guro.exe</OutputFile>
+      <OutputFile>$(OutDir)\lab_mesh.exe</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -180,20 +180,20 @@
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="color_widget.cpp" />
-    <ClCompile Include="cube.cpp" />
-    <ClCompile Include="cube_widget.cpp" />
+    <ClCompile Include="MeshLoader.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh_widget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MeshLoader.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="Vertex.h" />
     <ClInclude Include="camera.h" />
-    <ClInclude Include="color_widget.h" />
-    <ClInclude Include="cube.h" />
-    <QtMoc Include="cube_widget.h">
-    </QtMoc>
     <ClInclude Include="light_source.h" />
     <ClInclude Include="lights_controller.h" />
-    <ClInclude Include="object.h" />
+    <QtMoc Include="mesh_widget.h">
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -214,16 +214,16 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="close.ico" />
-    <None Include="cube.ico" />
-    <None Include="fragment.fsh" />
-    <None Include="guro_fragment.fsh" />
-    <None Include="guro_fragment.vsh" />
-    <None Include="guro_vertex.vsh" />
-    <None Include="light.fsh" />
-    <None Include="light.vsh" />
-    <None Include="settings.ico" />
-    <None Include="vertex.vsh" />
+    <None Include="Materials\MeshCube.mtl" />
+    <None Include="Materials\MeshCube.obj" />
+    <None Include="Materials\MeshHouse.mtl" />
+    <None Include="Materials\MeshHouse.obj" />
+    <None Include="Materials\MeshSphere.mtl" />
+    <None Include="Materials\MeshSphere.obj" />
+    <None Include="Shaders\guro_fragment.fsh" />
+    <None Include="Shaders\guro_vertex.vsh" />
+    <None Include="Shaders\light.fsh" />
+    <None Include="Shaders\light.vsh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

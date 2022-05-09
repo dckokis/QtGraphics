@@ -24,6 +24,7 @@ DISTFILES += \
     close.ico \
     cube.ico \
     fragment.fsh \
+    guro_fragment.fsh \
     light.fsh \
     light.vsh \
     settings.ico \

@@ -10,7 +10,8 @@ enum class lights_type {
 	AMBIENT = 3
 };
 
-inline auto set_coordinates_selector(QGridLayout* layout, const lights_type lightType, const CubeWidget* cubeWidget) -> void {
+inline auto set_coordinates_selector(QGridLayout* layout, const lights_type lightType,
+                                     const CubeWidget* cubeWidget) -> void {
 	auto* x_coordinate_selector = new QDoubleSpinBox;
 	auto* y_coordinate_selector = new QDoubleSpinBox;
 	auto* z_coordinate_selector = new QDoubleSpinBox;

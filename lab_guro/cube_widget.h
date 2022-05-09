@@ -129,7 +129,7 @@ private:
 
 	float m_cubeEdgeLen = 6.f;
 
-	int m_gridStep = 20;
+	int m_gridStep = 1;
 
 	GLfloat m_ka = .2f, m_kd = .2f, m_ks = 1.f;
 

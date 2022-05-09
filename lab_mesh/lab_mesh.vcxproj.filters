@@ -37,41 +37,41 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="color_widget.cpp">
+    <ClCompile Include="MeshLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cube_widget.cpp">
+    <ClCompile Include="Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mesh_widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MeshLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="color_widget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <QtMoc Include="cube_widget.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <ClInclude Include="light_source.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lights_controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="object.h">
+    <QtMoc Include="mesh_widget.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     
@@ -84,34 +84,34 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="close.ico">
+    <None Include="Materials\MeshCube.mtl">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="cube.ico">
+    <None Include="Materials\MeshCube.obj">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="fragment.fsh">
+    <None Include="Materials\MeshHouse.mtl">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="guro_fragment.fsh">
+    <None Include="Materials\MeshHouse.obj">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="guro_fragment.vsh">
+    <None Include="Materials\MeshSphere.mtl">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="guro_vertex.vsh">
+    <None Include="Materials\MeshSphere.obj">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="light.fsh">
+    <None Include="Shaders\guro_fragment.fsh">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="light.vsh">
+    <None Include="Shaders\guro_vertex.vsh">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="settings.ico">
+    <None Include="Shaders\light.fsh">
       <Filter>Distribution Files</Filter>
     </None>
-    <None Include="vertex.vsh">
+    <None Include="Shaders\light.vsh">
       <Filter>Distribution Files</Filter>
     </None>
   </ItemGroup>

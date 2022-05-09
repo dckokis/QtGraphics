@@ -1,6 +1,5 @@
 #include "cube_widget.h"
 
-
 auto CubeWidget::switchShaderType() -> void {
 	m_shType = m_shType == shader_type::PIXEL ? shader_type::VERTEX : shader_type::PIXEL;
 	m_shTypeChanged = true;
@@ -70,8 +69,7 @@ auto CubeWidget::initializeGL() -> void {
 
 auto CubeWidget::paintGL() -> void {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(m_ambientLight.color.red() / 255, m_ambientLight.color.green() / 255,
-	             m_ambientLight.color.blue() / 255, 1000);
+	glClearColor(1.f, 1.f, 1.f, 1000);
 
 	if (m_shTypeChanged) {
 		initShaders();
@@ -134,6 +132,7 @@ auto CubeWidget::paintGL() -> void {
 			m_cube->render(m_objectProgram);
 		}
 	}
+
 	m_lightProgram.bind();
 	if (m_pointLight.isEnabled()) {
 		QMatrix4x4 point_matrix;
@@ -155,10 +154,10 @@ auto CubeWidget::paintGL() -> void {
 		m_lightProgram.setUniformValue("matrix", projection * m_camera.getViewMatrix() * projector_matrix);
 		m_projectorLight.render(m_lightProgram);
 	}
+
 	m_rotationFactor++;
 	update();
 }
-
 
 auto CubeWidget::setGrid(const GLint value) -> void {
 	m_cube = new Cube(m_cubeEdgeLen, value);

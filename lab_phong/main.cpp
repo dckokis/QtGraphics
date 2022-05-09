@@ -60,7 +60,7 @@ auto main(int argc, char* argv[]) -> int {
 	 * layout
 	 */
 	auto* amount_slider = new QSlider(Qt::Horizontal);
-	amount_slider->setRange(1, 100);
+	amount_slider->setRange(1, 1000);
 	amount_slider->setSliderPosition(10);
 	QObject::connect(amount_slider, &QSlider::valueChanged, cube_widget, &CubeWidget::setNumberOfCubes);
 	auto layout = std::make_unique<QGridLayout>();
