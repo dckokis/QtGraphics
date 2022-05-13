@@ -22,11 +22,10 @@ public:
 	[[nodiscard]] auto getColor() const -> QColor;
 
 	auto setColor(const QColor& color) -> void;
-
-private:
+public:
 	std::string m_name;
-	Vertices m_vertices;
-	Indices m_indices;
+	vertices m_vertices;
+	indices m_indices;
 	QColor m_color{255, 255, 255};
 	QOpenGLBuffer m_vertexBuf, m_indexBuf;
 };

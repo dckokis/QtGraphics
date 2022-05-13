@@ -10,5 +10,5 @@ enum class MlResult {
 
 class MeshLoader final {
 public:
-	static auto load(const std::string& path, Vertices& vertices, Indices& indices) -> MlResult;
+	static auto load(const std::string& path, vertices& vertices, indices& indices) -> MlResult;
 };

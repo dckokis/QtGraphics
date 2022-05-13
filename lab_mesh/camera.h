@@ -18,7 +18,7 @@ public:
 	}
 
 private:
-	QVector3D m_pos{0.f, 0.f, 5.f},
-	          m_front{0.f, 0.f, -1.f},
+	QVector3D m_pos{0.f, 0.f, 7.f},
+	          m_front{0.f, 0., -1.f},
 	          m_up{0.f, 1.f, 0.f};
 };

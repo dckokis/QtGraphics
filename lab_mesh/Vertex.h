@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include <QVector3D>
 #include <QVector2D>
+#include <QOpenGLFunctions>
 
 struct Vertex {
 	QVector3D m_position;
@@ -9,5 +9,5 @@ struct Vertex {
 	QVector2D m_textureCoordinate;
 };
 
-using Vertices = std::vector<Vertex>;
-using Indices = std::vector<unsigned>;
+using vertices = std::vector<Vertex>;
+using indices = std::vector<GLint>;

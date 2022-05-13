@@ -22,9 +22,9 @@ auto MeshWidget::initLights() -> void {
 }
 
 auto MeshWidget::initializeGL() -> void {
-	initLights();
 	initializeOpenGLFunctions();
 	initShaders();
+	initLights();
 	m_objects.emplace_back(new Object("MeshCube"));
 	m_objects.emplace_back(new Object("MeshSphere"));
 	m_objects.emplace_back(new Object("MeshHouse"));
@@ -35,7 +35,7 @@ auto MeshWidget::initializeGL() -> void {
 
 auto MeshWidget::paintGL() -> void {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
+
 	m_objectProgram.bind();
 	m_objectProgram.setUniformValue("ka", m_ka);
 	m_objectProgram.setUniformValue("kd", m_kd);
@@ -55,7 +55,10 @@ auto MeshWidget::paintGL() -> void {
 	auto model_num = 0;
 	for (const auto& object : m_objects) {
 		QMatrix4x4 model;
-		model.translate(-5.f * model_num, 0, 0);
+		int a;
+		if (model_num % 2 == 0) { a = 1; }
+		else { a = -1; }
+		model.translate(a * 5.f * model_num, 0, 0);
 		model.rotate(0.5f * m_rotationFactor, 0, 1, 0);
 		m_objectProgram.setUniformValue("model", model);
 		object->render(m_objectProgram);

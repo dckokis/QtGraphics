@@ -1,7 +1,7 @@
 #include "Object.h"
 
-Object::Object(std::string name) : m_name(std::move(name)) {}
-
+Object::Object(std::string name) : m_name(std::move(name)), m_vertexBuf(QOpenGLBuffer::VertexBuffer),
+                                   m_indexBuf(QOpenGLBuffer::IndexBuffer) {}
 
 auto Object::initialize() -> void {
 	initializeOpenGLFunctions();
@@ -9,15 +9,13 @@ auto Object::initialize() -> void {
 	m_indexBuf.create();
 
 	if (MeshLoader::load(std::string("Materials/" + m_name + ".obj"),
-		m_vertices, m_indices) == MlResult::ML_FAIL) {
-		return;
-	}
+	                     m_vertices, m_indices) == MlResult::ML_FAIL) { return; }
 
 	m_vertexBuf.bind();
 	m_vertexBuf.allocate(m_vertices.data(), m_vertices.size() * sizeof(Vertex));
 
 	m_indexBuf.bind();
-	m_indexBuf.allocate(m_indices.data(), m_indices.size() * sizeof(unsigned));
+	m_indexBuf.allocate(m_indices.data(), m_indices.size() * sizeof(GLint));
 }
 
 auto Object::render(QOpenGLShaderProgram& program) -> void {

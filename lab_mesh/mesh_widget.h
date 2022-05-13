@@ -8,6 +8,7 @@
 #include <QPainter>
 #include "light_source.h"
 #include "camera.h"
+#include "cube.h"
 
 class MeshWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
 	Q_OBJECT

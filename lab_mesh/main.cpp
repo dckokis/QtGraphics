@@ -6,11 +6,11 @@
 
 auto main(int argc, char* argv[]) -> int {
 	QApplication app(argc, argv);
-	const auto cube_widget = new MeshWidget();
+	const auto mesh_widget = new MeshWidget();
 	QPalette dark_theme_pal;
 	dark_theme_pal.setColor(QPalette::Window, QColor(53, 53, 53));
 	dark_theme_pal.setColor(QPalette::WindowText, QColor(203, 203, 203));
-	const auto lights_controller = set_up_controller(cube_widget, dark_theme_pal);
+	const auto lights_controller = set_up_controller(mesh_widget, dark_theme_pal);
 	/*
 	 * labels
 	 */
@@ -32,16 +32,16 @@ auto main(int argc, char* argv[]) -> int {
 	kd_slider->setSliderPosition(4);
 	ks_slider->setSliderPosition(20);
 
-	QObject::connect(ka_slider, &QSlider::valueChanged, cube_widget, &MeshWidget::setAmbientCoef);
-	QObject::connect(kd_slider, &QSlider::valueChanged, cube_widget, &MeshWidget::setDiffuseCoef);
-	QObject::connect(ks_slider, &QSlider::valueChanged, cube_widget, &MeshWidget::setSpecularCoef);
+	QObject::connect(ka_slider, &QSlider::valueChanged, mesh_widget, &MeshWidget::setAmbientCoef);
+	QObject::connect(kd_slider, &QSlider::valueChanged, mesh_widget, &MeshWidget::setDiffuseCoef);
+	QObject::connect(ks_slider, &QSlider::valueChanged, mesh_widget, &MeshWidget::setSpecularCoef);
 	/*
 	 * camera slider
 	 */
 	const auto camera_slider = new QSlider(Qt::Vertical);
 	camera_slider->setRange(1, 100);
 	camera_slider->setSliderPosition(7);
-	QObject::connect(camera_slider, &QSlider::valueChanged, cube_widget, &MeshWidget::moveCamera);
+	QObject::connect(camera_slider, &QSlider::valueChanged, mesh_widget, &MeshWidget::moveCamera);
 	/*
 	 * settings button
 	 */
@@ -53,7 +53,7 @@ auto main(int argc, char* argv[]) -> int {
 	auto layout = std::make_unique<QGridLayout>();
 
 	layout->addWidget(settings_button, 2, 2);
-	layout->addWidget(cube_widget, 0, 1);
+	layout->addWidget(mesh_widget, 0, 1);
 
 	layout->addWidget(ka_slider, 2, 1);
 	layout->addWidget(kd_slider, 3, 1);

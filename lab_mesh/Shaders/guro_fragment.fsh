@@ -33,7 +33,7 @@ vec4 directed(vec3 fragPos, vec3 normal)
     vec4 specular = ks * spec * directedColor;
 
 
-    return (diffuse + specular);
+    return (diffuse + specular + ambient);
 }
 
 void main()
