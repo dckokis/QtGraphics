@@ -22,7 +22,8 @@ public:
 	[[nodiscard]] auto getColor() const -> QColor;
 
 	auto setColor(const QColor& color) -> void;
-public:
+
+private:
 	std::string m_name;
 	vertices m_vertices;
 	indices m_indices;

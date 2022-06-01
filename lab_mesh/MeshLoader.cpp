@@ -1,6 +1,5 @@
 #include "MeshLoader.h"
 #include <QFile>
-
 #include <iostream>
 
 auto MeshLoader::load(const std::string& path, vertices& vertices, indices& indices) -> MlResult {
@@ -17,35 +16,34 @@ auto MeshLoader::load(const std::string& path, vertices& vertices, indices& indi
 	std::vector<QVector3D> positions;
 	std::vector<QVector3D> normals;
 	std::vector<QVector2D> textures;
-	const auto lines_amount = lines.size();
-	for (size_t i = 0; i < lines_amount; ++i) {
-		if (lines[i][0] != '#') {
-			if (lines[i][0] == 'v' && lines[i][1] == ' ') {
-				float tmpx, tmpy, tmpz;
-				sscanf(lines[i].c_str(), "v %f %f %f", &tmpx, &tmpy, &tmpz);
+	for (auto& line : lines) {
+		if (line[0] != '#') {
+			if (line[0] == 'v' && line[1] == ' ') {
+				float x, y, z;
+				sscanf_s(line.c_str(), "v %f %f %f", &x, &y, &z);
 				QVector3D position = {
-					tmpx,
-					tmpy,
-					tmpz
+					x,
+					y,
+					z
 				};
 				positions.push_back(position);
 			}
-			else if (lines[i][0] == 'v' && lines[i][1] == 'n') {
-				float tmpx, tmpy, tmpz;
-				sscanf(lines[i].c_str(), "vn %f %f %f", &tmpx, &tmpy, &tmpz);
-				QVector3D normal = {tmpx, tmpy, tmpz};
+			else if (line[0] == 'v' && line[1] == 'n') {
+				float x, y, z;
+				sscanf_s(line.c_str(), "vn %f %f %f", &x, &y, &z);
+				QVector3D normal = {x, y, z};
 				normals.push_back(normal);
 			}
-			else if (lines[i][0] == 'v' && lines[i][1] == 't') {
-				float tmpx, tmpy;
-				sscanf(lines[i].c_str(), "vt %f %f", &tmpx, &tmpy);
-				QVector2D tex = {tmpx, tmpy};
+			else if (line[0] == 'v' && line[1] == 't') {
+				float x, y;
+				sscanf_s(line.c_str(), "vt %f %f", &x, &y);
+				QVector2D tex = {x, y};
 				textures.push_back(tex);
 			}
-			else if (lines[i][0] == 'f') {
+			else if (line[0] == 'f') {
 				int v1, v1n, v1t, v2, v2n, v2t, v3, v3n, v3t;
-				sscanf(lines[i].c_str(), "f %i/%i/%i %i/%i/%i %i/%i/%i", &v1, &v1t, &v1n, &v2, &v2t,
-				       &v2n, &v3, &v3t, &v3n);
+				sscanf_s(line.c_str(), "f %i/%i/%i %i/%i/%i %i/%i/%i", &v1, &v1t, &v1n, &v2, &v2t,
+				         &v2n, &v3, &v3t, &v3n);
 				indices.push_back(v1 - 1);
 				indices.push_back(v2 - 1);
 				indices.push_back(v3 - 1);

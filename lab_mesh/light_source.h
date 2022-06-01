@@ -18,4 +18,3 @@ private:
 	bool m_isEnabled = true;
 	QVector3D m_pos{};
 };
-

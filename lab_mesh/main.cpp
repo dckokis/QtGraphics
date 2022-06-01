@@ -1,4 +1,5 @@
 #include "lights_controller.h"
+#include <QPushButton>
 #include <QApplication>
 #include <QHBoxLayout>
 #include <QSlider>
@@ -72,7 +73,6 @@ auto main(int argc, char* argv[]) -> int {
 	main_window->setFixedSize(800, 600);
 	main_window->setWindowTitle("Mesh Application");
 	main_window->setWindowFlag(Qt::FramelessWindowHint);
-
 
 	const auto close_button = new QPushButton();
 	const QIcon close_icon(R"(close.ico)");

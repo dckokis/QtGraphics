@@ -1,14 +1,11 @@
 #pragma once
 #include <QtOpenGLWidgets/QOpenGLWidget>
 #include <QApplication>
-#include <QColorDialog>
-#include <QPushButton>
 #include <QElapsedTimer>
 #include <QLabel>
 #include <QPainter>
 #include "light_source.h"
 #include "camera.h"
-#include "cube.h"
 
 class MeshWidget final : public QOpenGLWidget, protected QOpenGLFunctions {
 	Q_OBJECT
@@ -44,7 +41,7 @@ private:
 	auto initShaders() -> void;
 
 	auto initLights() -> void;
-	
+
 	Camera m_camera;
 
 	QOpenGLShaderProgram m_objectProgram, m_lightProgram;
